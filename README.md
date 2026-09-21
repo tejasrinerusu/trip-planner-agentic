@@ -1,40 +1,64 @@
+# ✈️ AI Travel Planner – Agentic AI Application
 
-```uv --version
-```
+An AI-powered travel planning application that generates personalized trip itineraries using an agentic AI workflow.
 
+## 🌐 Live Demo
 
-```import shutil
-print(shutil.which("uv"))```
+🚀 **Try the application:**  
+https://trip-planner-agentic-n2cexl4az9gsw5jytck9gu.streamlit.app/
 
-```pip install uv```
+## 📌 Overview
 
-```uv init AI_Travel_Planner```
+The AI Travel Planner helps users plan trips by generating detailed travel itineraries based on their requirements.
 
-```uv pip list```
+The application uses an agentic workflow where an AI agent can use different tools to:
 
-```uv python list```
+- Plan day-by-day travel itineraries
+- Search for attractions
+- Estimate hotel expenses
+- Calculate total expenses
+- Calculate daily travel budgets
+- Provide travel recommendations
+- Generate personalized trip plans
 
-```uv python install ypy-3.10.16-windows-x86_64-none```
+## 🛠️ Tech Stack
 
-```uv python list```
+- **Python**
+- **Streamlit** – Frontend
+- **FastAPI** – Backend API
+- **LangChain** – Agentic AI framework
+- **LangGraph** – Agent workflow orchestration
+- **Groq** – LLM inference
+- **Google APIs** – Travel and location-related tools
+- **Uvicorn** – ASGI server
+- **Git & GitHub** – Version control
+- **Render** – Backend deployment
+- **Streamlit Community Cloud** – Frontend deployment
 
-```uv venv env --python cpython-3.10.18-windows-x86_64-none```
+## 🏗️ Architecture
 
-```uv add pandas```
-
-#if you have conda then first deactivate that
-```conda deactivate```
-
-```uv venv env --python cpython-3.10.18-windows-x86_64-none```
-
-## use this command from your virtual env
-```C:\Users\sunny\AI_Trip_Planner\env\Scripts\activate.bat```
-
-
-```
-streamlit run streamlit_app.py
-```
-
-```
-uvicorn main:app --reload --port 8000
-```# trip-planner-agentic
+```text
+                    User
+                      │
+                      ▼
+          ┌─────────────────────┐
+          │   Streamlit Cloud   │
+          │      Frontend       │
+          └──────────┬──────────┘
+                     │
+                     │ POST /query
+                     ▼
+          ┌─────────────────────┐
+          │   FastAPI Backend   │
+          │       Render        │
+          └──────────┬──────────┘
+                     │
+                     ▼
+          ┌─────────────────────┐
+          │   Agentic Workflow  │
+          │ LangChain/LangGraph │
+          └──────────┬──────────┘
+                     │
+              ┌──────┴──────┐
+              ▼             ▼
+            Groq       External APIs
